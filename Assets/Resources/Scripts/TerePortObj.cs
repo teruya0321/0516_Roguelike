@@ -26,7 +26,9 @@ public class TerePortObj : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            gameManager.GetComponent<AreaMove>().NextArea();
+            GameObject player = collision.gameObject;
+            int stage = Random.Range(0, 3);
+            gameManager.GetComponent<AreaMove>().NextArea(player,stage);
         }
     }
 }
