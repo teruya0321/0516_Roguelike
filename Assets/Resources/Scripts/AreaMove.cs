@@ -8,13 +8,11 @@ public class AreaMove : MonoBehaviour
 
     public GameObject[] tereportPoint;
 
-    int stage = 3;
-
     public Image loadingImage;
 
     GameObject main;
 
-    float timer;
+    //float timer;
 
     int imageAlpha;
     // Start is called before the first frame update
@@ -32,21 +30,20 @@ public class AreaMove : MonoBehaviour
     public void NextArea(GameObject player,int stage)
     {
         main = player;
+        player.transform.position = tereportPoint[stage].transform.position + transform.forward;
+        StartCoroutine("LoadingImage");
+    }
 
-        switch (stage)
-        {
-            case 0:
-                player.transform.position = tereportPoint[0].transform.position + transform.forward;
-                break;
-            case 1:
-                player.transform.position = tereportPoint[1].transform.position + transform.forward;
-                break;
-            case 2:
-                player.transform.position = tereportPoint[2].transform.position + transform.forward;
-                break;
+    IEnumerator LoadingImage()
+    {
+        main.GetComponent<PlayerMove>().loading = true;
+        imageAlpha = 255;
+        //Debug.Log(loadingImage.GetComponent<Image>().color);
 
-            default:
-                break;
-        }
+        yield return new WaitForSeconds(3);
+
+        main.GetComponent<PlayerMove>().loading = false;
+        imageAlpha = 0;
+        //Debug.Log(loadingImage.GetComponent<Image>().color);
     }
 }
