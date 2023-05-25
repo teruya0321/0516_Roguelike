@@ -18,7 +18,10 @@ public class AreaMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (Transform spawnEnemyPoint in tereportPoint[0].transform)
+        {
+            spawnEnemyPoint.GetComponent<SpawnEnemy>().CallEnemy();
+        }
     }
 
     // Update is called once per frame
@@ -33,6 +36,10 @@ public class AreaMove : MonoBehaviour
         player.transform.localEulerAngles = new Vector3(0, 0, 0);
         player.transform.position = tereportPoint[stage].transform.position + transform.forward;
         StartCoroutine("LoadingImage");
+        foreach(Transform spawnEnemyPoint in tereportPoint[stage].transform)
+        {
+            spawnEnemyPoint.GetComponent<SpawnEnemy>().CallEnemy();
+        }
     }
 
     IEnumerator LoadingImage()

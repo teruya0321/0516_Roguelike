@@ -5,10 +5,18 @@ using UnityEngine.AI;
 
 public class AITest : MonoBehaviour
 {
-    public Transform target;
+    GameObject targetObj;
+
+    Transform target;
 
     NavMeshAgent agent;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        targetObj = GameObject.Find("Player");
+
+        target = targetObj.transform;
+    }
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
