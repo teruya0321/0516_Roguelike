@@ -30,6 +30,7 @@ public class AreaMove : MonoBehaviour
     public void NextArea(GameObject player,int stage)
     {
         main = player;
+        player.transform.localEulerAngles = new Vector3(0, 0, 0);
         player.transform.position = tereportPoint[stage].transform.position + transform.forward;
         StartCoroutine("LoadingImage");
     }
@@ -38,12 +39,13 @@ public class AreaMove : MonoBehaviour
     {
         main.GetComponent<PlayerMove>().loading = true;
         imageAlpha = 255;
-        //Debug.Log(loadingImage.GetComponent<Image>().color);
 
         yield return new WaitForSeconds(3);
 
-        main.GetComponent<PlayerMove>().loading = false;
+        //main.GetComponent<PlayerMove>().loading = false;
+        GetComponent<AddSkill>().GetSkill();
         imageAlpha = 0;
-        //Debug.Log(loadingImage.GetComponent<Image>().color);
     }
+
+
 }

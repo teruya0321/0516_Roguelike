@@ -11,37 +11,67 @@ public class PlayerMove : MonoBehaviour
     float x;
 
     float z;
+
+    float defaultspeed;
+
+    public GameObject wepon;
+
+    Wepon weponScript;
     // Start is called before the first frame update
     void Start()
     {
-        
+        defaultspeed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        x = Input.GetAxisRaw("Horizontal") * speed;
+
+        z = Input.GetAxisRaw("Vertical") * speed;
+
+        Vector3 movement = new Vector3(x, 0, z);
+
+        gameObject.GetComponent<Rigidbody>().velocity = movement;
         if (loading)
         {
-            x = 0;
-
-            z = 0;
+            speed = 0;
         }
         else
         {
-            x = Input.GetAxisRaw("Horizontal") * speed;
-
-            z = Input.GetAxisRaw("Vertical") * speed;
-
+            speed = defaultspeed;
         }
 
-        if (x != 0 || z != 0)
+        if(movement != Vector3.zero)
         {
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(x, -2, z);
+            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+            Quaternion rotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, toRotation, 0.15f);
+            GetComponent<Rigidbody>().MoveRotation(rotation);
         }
-        else
+
+        if (Input.GetMouseButtonDown(0))
         {
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, -2, 0);
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
+            if (Physics.Raycast(ray,out hit))
+            {
+                //Debug.Log("Hit!:" + hit.collider.gameObject);
+            }
         }
-        
+
+        if(wepon != null)
+        {
+            CallWepon();
+        }
+    }
+
+    void CallWepon()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            weponScript = GetComponent<Wepon>();
+
+            weponScript.Attack(1);
+        }
     }
 }
