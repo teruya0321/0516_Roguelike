@@ -2,33 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class AddSkill : MonoBehaviour
 {
     public GameObject canvas;
 
-    GameObject uiObj;
+    public GameObject uiObj;
 
     public GameObject gameManager;
-    private void Awake()
-    {
-        uiObj = (GameObject)Resources.Load("UI/SkillButton");
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log(uiObj);
-    }
 
-    // Update is called once per frame
+    public List<Sprite> uiIcon;
 
+    int end = 13;
+
+    public List<int> numbers;
     public void GetSkill()
     {
-        uiObj.AddComponent<TestSkill>();
-        //Debug.Log("‚Ä‚·‚Æ");
+        numbers = new List<int>(); 
+        for (int i = 1; i <= end; i++)
+        {
+            numbers.Add(i);
+        }
+
         for (int i = 0; i <= 2; i++)
         {
-            Instantiate(uiObj, canvas.transform.Find("Skill"));
+            int y = Random.Range(1, numbers.Count);
+            int ransu = numbers[y];
+
+            numbers.RemoveAt(y);
+
+            uiObj.GetComponent<TestSkill>().number = ransu;
+            uiObj.GetComponent<Image>().sprite = uiIcon[ransu - 1];
+            Instantiate(uiObj, canvas.transform.Find("ButtonParent"));
         }
+
     }
 }

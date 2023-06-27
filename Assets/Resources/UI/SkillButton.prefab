@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 2062891137499557131}
   - component: {fileID: 2062891137499557132}
   - component: {fileID: 2062891137499557133}
-  - component: {fileID: -8849052797305834021}
-  - component: {fileID: 8507971747381806908}
-  - component: {fileID: -3747189266278103739}
   m_Layer: 5
   m_Name: SkillButton
   m_TagString: Untagged
@@ -136,39 +133,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-8849052797305834021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062891137499557135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f07d7dec09736c41baca3c266d66633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8507971747381806908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062891137499557135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f07d7dec09736c41baca3c266d66633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-3747189266278103739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062891137499557135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f07d7dec09736c41baca3c266d66633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

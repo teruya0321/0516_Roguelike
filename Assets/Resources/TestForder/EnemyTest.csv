@@ -1,0 +1,9 @@
+敵ID,名前,攻撃力,HP,Speed,LongRange,Drop
+1,Enemy01,3,10,1,true,false
+2,Enemy02,2,8,1.5,false,false
+3,Enemy03,2,8,0.75,true,false
+4,Enemy04,1,5,0.75,true,false
+5,BossEnemy01,5,20,0.75,false,true
+6,BossEnemy02,5,30,1,true,true
+7,BossEnemy03,15,200,1.5,true,false
+8,BossEnemy04,8,100,0.75,false,false

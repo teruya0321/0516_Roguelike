@@ -5,12 +5,13 @@ using UnityEngine;
 public class Wepon : MonoBehaviour
 {
     public int weponNumber;
-    public void Attack(int i)
+    public void Attack(int i,GameObject enemy)
     {
-        switch (weponNumber)
+
+        switch (i)
         {
             case 1:
-                Debug.Log("çUåÇíÜ");
+                Destroy(enemy.gameObject);
                 break;
 
             default:

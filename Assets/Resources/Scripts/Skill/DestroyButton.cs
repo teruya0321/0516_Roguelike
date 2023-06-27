@@ -7,7 +7,7 @@ public class DestroyButton : MonoBehaviour
 {
     public void AllDestroyButton()
     {
-        foreach(Transform c in gameObject.transform)
+        foreach (Transform c in gameObject.transform)
         {
             Destroy(c.gameObject);
         }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 1;
+    
+    public int defaultHp;
+    public int hp;
 
     public bool loading = false;
 
@@ -14,13 +17,14 @@ public class PlayerMove : MonoBehaviour
 
     float defaultspeed;
 
-    public GameObject wepon;
+    public GameObject weapon;
 
-    Wepon weponScript;
+    //Rigidbody myRb;
     // Start is called before the first frame update
     void Start()
     {
         defaultspeed = speed;
+        hp = defaultHp;
     }
 
     // Update is called once per frame
@@ -30,8 +34,11 @@ public class PlayerMove : MonoBehaviour
 
         z = Input.GetAxisRaw("Vertical") * speed;
 
-        Vector3 movement = new Vector3(x, 0, z);
-
+        Vector3 movement = new Vector3(x, -2, z);
+        /*if(myRb.velocity.magnitude < maxSpeed)
+        {
+            myRb.AddForce(movement);
+        }*/
         gameObject.GetComponent<Rigidbody>().velocity = movement;
         if (loading)
         {
@@ -42,36 +49,11 @@ public class PlayerMove : MonoBehaviour
             speed = defaultspeed;
         }
 
-        if(movement != Vector3.zero)
+        if(x != 0 || z != 0)   
         {
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
             Quaternion rotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, toRotation, 0.15f);
             GetComponent<Rigidbody>().MoveRotation(rotation);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = new Ray(transform.position, transform.forward);
-            RaycastHit hit;
-            if (Physics.Raycast(ray,out hit))
-            {
-                //Debug.Log("Hit!:" + hit.collider.gameObject);
-            }
-        }
-
-        if(wepon != null)
-        {
-            CallWepon();
-        }
-    }
-
-    void CallWepon()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            weponScript = GetComponent<Wepon>();
-
-            weponScript.Attack(1);
         }
     }
 }

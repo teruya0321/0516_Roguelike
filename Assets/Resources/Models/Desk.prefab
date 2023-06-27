@@ -258,6 +258,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7378171740158553757}
+  - component: {fileID: 896026142133540722}
+  - component: {fileID: -1139322793361604016}
   m_Layer: 0
   m_Name: Desk
   m_TagString: Untagged
@@ -272,7 +274,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7867604619814876199}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.440178, y: 0, z: 4.3576937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -284,6 +286,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &896026142133540722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867604619814876199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 5, z: 12}
+  m_Center: {x: 0, y: 2.6, z: 0}
+--- !u!208 &-1139322793361604016
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867604619814876199}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3, y: 2.5, z: 6}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2.6, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8613366502443836166
 GameObject:
   m_ObjectHideFlags: 0
