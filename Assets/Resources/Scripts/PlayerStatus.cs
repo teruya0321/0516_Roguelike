@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerStatus : MonoBehaviour
     public Weapon01 weaponScript;
 
     public bool bossArea;
+
+    public static List<Behaviour> skillList;
     public void SetPlayerStatus(int minHp,float minSpeed)
     {
         playerHp = minHp + PlayerPrefs.GetInt("UpHp");
@@ -26,6 +29,8 @@ public class PlayerStatus : MonoBehaviour
             if (bossArea) BossDead();
             else PlayerDead();
         }
+
+        
     }
 
     public void StatusUp(int random)
@@ -53,11 +58,18 @@ public class PlayerStatus : MonoBehaviour
     {
         PlayerPrefs.SetInt("UpHp", upHp + PlayerPrefs.GetInt("UpHp"));
         PlayerPrefs.SetFloat("UpSpeed", upSpeed + PlayerPrefs.GetFloat("UpSpeed"));
+        SceneManager.LoadScene("Result");
     }
 
     void BossDead()
     {
         PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Clear");
+    }
+
+    void AddSkillList()
+    {
+
     }
 }
     

@@ -19,12 +19,17 @@ public class PlayerMove : MonoBehaviour
 
     public GameObject weapon;
 
+    public GameObject AnimObj;
+    Animator anim;
+
     //Rigidbody myRb;
     // Start is called before the first frame update
     void Start()
     {
         defaultspeed = speed;
         hp = defaultHp;
+
+        anim = AnimObj.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,6 +59,10 @@ public class PlayerMove : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
             Quaternion rotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, toRotation, 0.15f);
             GetComponent<Rigidbody>().MoveRotation(rotation);
+
+            
         }
+
+        anim.SetBool("Run", x != 0 || z != 0);
     }
 }

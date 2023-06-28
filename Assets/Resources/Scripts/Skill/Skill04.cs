@@ -37,6 +37,6 @@ public class Skill04 : MonoBehaviour
 
     void RandomWeapon()
     {
-
+        GetComponent<Weapon01>().ChangeWeapon(Random.Range(1, 9));
     }
 }

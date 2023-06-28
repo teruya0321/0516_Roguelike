@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AreaMove : MonoBehaviour
 {
@@ -63,6 +64,12 @@ public class AreaMove : MonoBehaviour
         Debug.Log("ステージ" + stageNumber);
         // 現在のエリアを表示
 
+        if(bossNumber >= 5)
+        {
+            SceneManager.LoadScene("Clear");
+
+            return;
+        }
         // 現在のステージが5の倍数なら中ボスのエリアに、そうでないなら雑魚ステージのエリアに飛ばす処理をしている
         string getStageNumber = stageNumber.ToString("00000");
         if (getStageNumber[getStageNumber.Length - 1] == '0' || getStageNumber[getStageNumber.Length - 1] == '5')
