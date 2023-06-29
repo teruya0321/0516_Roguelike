@@ -81,6 +81,10 @@ public class Weapon01 : MonoBehaviour
     }
     public void ChangeWeapon(int weaponNum)
     {
+        if(PlayerPrefs.GetString("Totyuu") == "")
+        {
+            PlayerPrefs.SetString("Totyuu","true");
+        }
         Debug.Log("•Ší‚ğWeapon0" + weaponNum + "‚ÉØ‚è‘Ö‚¦‚½‚æI");
 
         myMinAtk = int.Parse(csvDatas[weaponNum][2]);
