@@ -16,6 +16,7 @@ public class AttackArea : MonoBehaviour
         {
             other.GetComponent<EnemyStatus>().hp -= player.GetComponent<Weapon01>().Attack();
             Debug.Log(other.GetComponent<EnemyStatus>().hp);
+            other.gameObject.GetComponent<ParticleSystem>().Play();
         }
     }
 }
